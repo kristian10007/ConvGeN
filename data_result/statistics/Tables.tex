@@ -1,0 +1,352 @@
+
+% ### LR
+
+\begin{table*}[ht]\scriptsize\caption{LR (1)}\label{tab:results:LR:A}\centering\tabularnewline
+\begin{tabular}{l|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}}\hline
+\textbf{dataset ($f_1~$score$~/~\kappa~$score)} & \textbf{Repeater} & \textbf{ProWRAS} & \textbf{GAN} & \textbf{CTGAN} & \textbf{CTAB GAN}
+\tabularnewline
+\hline
+abalone 17 vs 7 8 9 10 &  0.275  /  0.244  &  0.336  /  0.309  &  0.336  /  0.317  &  0.182  /  0.152  &  0.186  /  0.151 
+\tabularnewline
+abalone9 18 &  0.458  /  0.409  &  0.566  /  0.534  &  0.514  /  0.481  &  0.341  /  0.296  &  0.517  /  0.479 
+\tabularnewline
+car good &  0.106  /  0.035  &  0.100  /  0.028  &  \textbf{0.112}  /  \textbf{0.043}  &  0.109  /  0.038  &  0.108  /  0.037 
+\tabularnewline
+car vgood &  0.362  /  0.320  &  0.394  /  0.356  &  0.336  /  0.304  &  0.325  /  0.279  &  0.379  /  0.342 
+\tabularnewline
+flare F &  0.263  /  0.210  &  0.278  /  0.228  &  0.322  /  0.287  &  0.321  /  0.277  &  \textbf{0.342}  /  \textbf{0.301} 
+\tabularnewline
+hypothyroid &  0.358  /  0.305  &  0.400  /  0.353  &  0.297  /  0.275  &  0.294  /  0.234  &  0.223  /  0.175 
+\tabularnewline
+kddcup guess passwd vs satan &  0.997  /  0.996  &  0.996  /  0.996  &  0.997  /  0.996  &  \textbf{0.998}  /  \textbf{0.998}  &  0.997  /  0.996 
+\tabularnewline
+kr vs k three vs eleven &  0.942  /  0.941  &  \textbf{0.965}  /  0.964  &  0.960  /  0.959  &  0.576  /  0.559  &  0.699  /  0.687 
+\tabularnewline
+kr vs k zero one vs draw &  0.650  /  0.632  &  0.744  /  0.732  &  0.796  /  0.788  &  0.398  /  0.361  &  0.735  /  0.723 
+\tabularnewline
+shuttle 2 vs 5 &  \textbf{0.998}  /  \textbf{0.998}  &  0.996  /  0.996  &  0.990  /  0.990  &  0.980  /  0.980  &  0.987  /  0.986 
+\tabularnewline
+winequality red 4 &  0.113  /  0.056  &  0.143  /  0.090  &  0.017  /  0.011  &  0.109  /  0.059  &  \textbf{0.144}  /  \textbf{0.097} 
+\tabularnewline
+yeast4 &  0.236  /  0.188  &  0.247  /  0.202  &  0.271  /  0.256  &  0.230  /  0.188  &  \textbf{0.284}  /  \textbf{0.257} 
+\tabularnewline
+yeast5 &  0.574  /  0.555  &  0.592  /  0.575  &  0.551  /  0.539  &  0.510  /  0.489  &  0.614  /  0.600 
+\tabularnewline
+yeast6 &  0.242  /  0.210  &  0.292  /  0.263  &  \textbf{0.393}  /  \textbf{0.382}  &  0.272  /  0.242  &  0.375  /  0.353 
+\tabularnewline
+\hline Average &  0.470  /  0.436  &  0.503  /  0.473  &  0.492  /  0.473  &  0.403  /  0.368  &  0.471  /  0.442 
+\tabularnewline
+\hline\end{tabular}\end{table*}
+
+
+\begin{table*}[ht]\scriptsize\caption{LR (2)}\label{tab:results:LR:B}\centering\tabularnewline
+\begin{tabular}{l|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}}\hline
+\textbf{dataset ($f_1~$score$~/~\kappa~$score)} & \textbf{ConvGeN(5,maj)} & \textbf{ConvGeN(min,maj)} & \textbf{ConvGeN(5,prox)} & \textbf{ConvGeN(min,prox)}
+\tabularnewline
+\hline
+abalone 17 vs 7 8 9 10 &  0.292  /  0.262  &  0.337  /  0.310  &  0.292  /  0.261  &  \textbf{0.344}  /  \textbf{0.318} 
+\tabularnewline
+abalone9 18 &  0.538  /  0.500  &  \textbf{0.575}  /  \textbf{0.544}  &  0.541  /  0.503  &  0.574  /  0.543 
+\tabularnewline
+car good &  0.108  /  0.038  &  0.109  /  0.038  &  0.107  /  0.036  &  0.110  /  0.039 
+\tabularnewline
+car vgood &  0.373  /  0.332  &  \textbf{0.422}  /  \textbf{0.387}  &  0.377  /  0.337  &  0.400  /  0.362 
+\tabularnewline
+flare F &  0.273  /  0.223  &  0.323  /  0.279  &  0.276  /  0.226  &  0.317  /  0.274 
+\tabularnewline
+hypothyroid &  0.363  /  0.312  &  0.378  /  0.328  &  0.360  /  0.308  &  \textbf{0.429}  /  \textbf{0.386} 
+\tabularnewline
+kddcup guess passwd vs satan &  0.989  /  0.989  &  0.995  /  0.995  &  0.994  /  0.994  &  \textbf{0.998}  /  \textbf{0.998} 
+\tabularnewline
+kr vs k three vs eleven &  0.952  /  0.951  &  \textbf{0.965}  /  \textbf{0.965}  &  0.948  /  0.947  &  0.963  /  0.962 
+\tabularnewline
+kr vs k zero one vs draw &  0.700  /  0.686  &  \textbf{0.836}  /  \textbf{0.830}  &  0.710  /  0.696  &  0.761  /  0.750 
+\tabularnewline
+shuttle 2 vs 5 &  0.994  /  0.994  &  0.996  /  0.996  &  0.989  /  0.989  &  0.992  /  0.992 
+\tabularnewline
+winequality red 4 &  0.130  /  0.075  &  0.135  /  0.080  &  0.126  /  0.071  &  0.131  /  0.076 
+\tabularnewline
+yeast4 &  0.254  /  0.209  &  0.277  /  0.235  &  0.249  /  0.204  &  0.276  /  0.234 
+\tabularnewline
+yeast5 &  0.582  /  0.564  &  \textbf{0.620}  /  \textbf{0.604}  &  0.577  /  0.559  &  0.601  /  0.584 
+\tabularnewline
+yeast6 &  0.295  /  0.266  &  0.353  /  0.328  &  0.290  /  0.261  &  0.316  /  0.289 
+\tabularnewline
+\hline Average &  0.489  /  0.457  &  \textbf{0.523}  /  \textbf{0.494}  &  0.488  /  0.457  &  0.515  /  0.486 
+\tabularnewline
+\hline\end{tabular}\end{table*}
+
+
+% ### RF
+
+\begin{table*}[ht]\scriptsize\caption{RF (1)}\label{tab:results:RF:A}\centering\tabularnewline
+\begin{tabular}{l|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}}\hline
+\textbf{dataset ($f_1~$score$~/~\kappa~$score)} & \textbf{Repeater} & \textbf{ProWRAS} & \textbf{GAN} & \textbf{CTGAN} & \textbf{CTAB GAN}
+\tabularnewline
+\hline
+abalone 17 vs 7 8 9 10 &  0.189  /  0.180  &  0.188  /  0.179  &  0.185  /  0.175  &  0.236  /  0.219  &  0.115  /  0.109 
+\tabularnewline
+abalone9 18 &  0.311  /  0.288  &  0.338  /  0.311  &  0.309  /  0.287  &  \textbf{0.398}  /  \textbf{0.366}  &  0.252  /  0.235 
+\tabularnewline
+car good &  \textbf{0.900}  /  \textbf{0.896}  &  0.557  /  0.548  &  0.672  /  0.664  &  0.533  /  0.504  &  0.669  /  0.660 
+\tabularnewline
+car vgood &  \textbf{0.982}  /  \textbf{0.982}  &  0.904  /  0.901  &  0.924  /  0.921  &  0.812  /  0.803  &  0.944  /  0.942 
+\tabularnewline
+flare F &  0.224  /  0.180  &  0.080  /  0.059  &  0.110  /  0.091  &  \textbf{0.261}  /  \textbf{0.214}  &  0.091  /  0.071 
+\tabularnewline
+hypothyroid &  0.796  /  0.787  &  0.737  /  0.726  &  0.785  /  0.775  &  0.764  /  0.750  &  0.779  /  0.769 
+\tabularnewline
+kddcup guess passwd vs satan &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000}  &  0.993  /  0.992  &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000} 
+\tabularnewline
+kr vs k three vs eleven &  \textbf{0.999}  /  \textbf{0.999}  &  0.993  /  0.993  &  0.995  /  0.995  &  0.791  /  0.784  &  0.997  /  0.997 
+\tabularnewline
+kr vs k zero one vs draw &  0.945  /  0.943  &  0.939  /  0.936  &  0.938  /  0.935  &  0.703  /  0.688  &  0.938  /  0.936 
+\tabularnewline
+shuttle 2 vs 5 &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000} 
+\tabularnewline
+winequality red 4 &  0.014  /  0.009  &  0.000  /  -0.008  &  0.026  /  0.023  &  \textbf{0.132}  /  \textbf{0.102}  &  0.007  /  -0.000 
+\tabularnewline
+yeast4 &  0.295  /  0.282  &  0.329  /  0.314  &  0.252  /  0.242  &  \textbf{0.353}  /  \textbf{0.325}  &  0.253  /  0.242 
+\tabularnewline
+yeast5 &  0.736  /  0.728  &  0.705  /  0.697  &  0.700  /  0.692  &  0.651  /  0.638  &  0.665  /  0.656 
+\tabularnewline
+yeast6 &  0.516  /  0.507  &  0.551  /  0.543  &  0.478  /  0.470  &  0.381  /  0.362  &  0.459  /  0.452 
+\tabularnewline
+\hline Average &  \textbf{0.636}  /  \textbf{0.627}  &  0.594  /  0.586  &  0.598  /  0.590  &  0.573  /  0.554  &  0.584  /  0.576 
+\tabularnewline
+\hline\end{tabular}\end{table*}
+
+
+\begin{table*}[ht]\scriptsize\caption{RF (2)}\label{tab:results:RF:B}\centering\tabularnewline
+\begin{tabular}{l|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}}\hline
+\textbf{dataset ($f_1~$score$~/~\kappa~$score)} & \textbf{ConvGeN(5,maj)} & \textbf{ConvGeN(min,maj)} & \textbf{ConvGeN(5,prox)} & \textbf{ConvGeN(min,prox)}
+\tabularnewline
+\hline
+abalone 17 vs 7 8 9 10 &  0.234  /  0.222  &  0.280  /  0.268  &  0.253  /  0.240  &  \textbf{0.283}  /  \textbf{0.270} 
+\tabularnewline
+abalone9 18 &  0.324  /  0.291  &  0.348  /  0.326  &  0.335  /  0.302  &  0.359  /  0.337 
+\tabularnewline
+car good &  0.634  /  0.624  &  0.659  /  0.650  &  0.655  /  0.646  &  0.647  /  0.638 
+\tabularnewline
+car vgood &  0.910  /  0.907  &  0.929  /  0.927  &  0.904  /  0.901  &  0.921  /  0.918 
+\tabularnewline
+flare F &  0.062  /  0.043  &  0.120  /  0.099  &  0.064  /  0.044  &  0.133  /  0.113 
+\tabularnewline
+hypothyroid &  0.782  /  0.772  &  \textbf{0.798}  /  \textbf{0.788}  &  0.791  /  0.781  &  0.796  /  0.786 
+\tabularnewline
+kddcup guess passwd vs satan &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000} 
+\tabularnewline
+kr vs k three vs eleven &  0.993  /  0.993  &  0.992  /  0.992  &  0.993  /  0.993  &  0.992  /  0.992 
+\tabularnewline
+kr vs k zero one vs draw &  0.941  /  0.939  &  0.946  /  0.944  &  0.937  /  0.935  &  \textbf{0.949}  /  \textbf{0.947} 
+\tabularnewline
+shuttle 2 vs 5 &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000} 
+\tabularnewline
+winequality red 4 &  0.079  /  0.062  &  0.086  /  0.055  &  0.067  /  0.050  &  0.070  /  0.041 
+\tabularnewline
+yeast4 &  0.251  /  0.240  &  0.321  /  0.304  &  0.238  /  0.228  &  0.314  /  0.298 
+\tabularnewline
+yeast5 &  0.691  /  0.684  &  \textbf{0.738}  /  \textbf{0.730}  &  0.705  /  0.698  &  0.727  /  0.718 
+\tabularnewline
+yeast6 &  0.498  /  0.490  &  \textbf{0.575}  /  \textbf{0.567}  &  0.510  /  0.503  &  0.510  /  0.501 
+\tabularnewline
+\hline Average &  0.600  /  0.591  &  0.628  /  0.618  &  0.604  /  0.594  &  0.622  /  0.611 
+\tabularnewline
+\hline\end{tabular}\end{table*}
+
+
+% ### GB
+
+\begin{table*}[ht]\scriptsize\caption{GB (1)}\label{tab:results:GB:A}\centering\tabularnewline
+\begin{tabular}{l|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}}\hline
+\textbf{dataset ($f_1~$score$~/~\kappa~$score)} & \textbf{Repeater} & \textbf{ProWRAS} & \textbf{GAN} & \textbf{CTGAN} & \textbf{CTAB GAN}
+\tabularnewline
+\hline
+abalone 17 vs 7 8 9 10 &  0.331  /  0.309  &  \textbf{0.333}  /  \textbf{0.315}  &  0.278  /  0.265  &  0.213  /  0.196  &  0.232  /  0.221 
+\tabularnewline
+abalone9 18 &  0.382  /  0.345  &  0.384  /  0.344  &  0.338  /  0.308  &  \textbf{0.398}  /  \textbf{0.370}  &  0.389  /  0.361 
+\tabularnewline
+car good &  0.839  /  0.831  &  0.853  /  0.847  &  0.831  /  0.824  &  0.533  /  0.504  &  0.764  /  0.756 
+\tabularnewline
+car vgood &  0.938  /  0.935  &  0.973  /  0.972  &  \textbf{0.982}  /  0.981  &  0.812  /  0.803  &  0.974  /  0.973 
+\tabularnewline
+flare F &  0.285  /  0.237  &  0.133  /  0.113  &  0.183  /  0.168  &  \textbf{0.326}  /  \textbf{0.286}  &  0.166  /  0.149 
+\tabularnewline
+hypothyroid &  0.781  /  0.768  &  0.788  /  0.777  &  0.808  /  0.799  &  0.748  /  0.733  &  0.809  /  0.800 
+\tabularnewline
+kddcup guess passwd vs satan &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000}  &  0.987  /  0.986  &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000} 
+\tabularnewline
+kr vs k three vs eleven &  \textbf{0.995}  /  \textbf{0.995}  &  \textbf{0.995}  /  \textbf{0.995}  &  \textbf{0.995}  /  \textbf{0.995}  &  0.751  /  0.742  &  0.994  /  0.994 
+\tabularnewline
+kr vs k zero one vs draw &  0.944  /  0.942  &  0.960  /  0.958  &  0.964  /  0.963  &  0.638  /  0.619  &  0.947  /  0.945 
+\tabularnewline
+shuttle 2 vs 5 &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000} 
+\tabularnewline
+winequality red 4 &  0.122  /  0.088  &  0.093  /  0.065  &  0.087  /  0.077  &  0.112  /  0.086  &  0.084  /  0.065 
+\tabularnewline
+yeast4 &  \textbf{0.378}  /  \textbf{0.350}  &  0.354  /  0.331  &  0.289  /  0.274  &  0.276  /  0.248  &  0.332  /  0.317 
+\tabularnewline
+yeast5 &  0.712  /  0.703  &  0.707  /  0.698  &  \textbf{0.736}  /  \textbf{0.728}  &  0.618  /  0.604  &  0.690  /  0.682 
+\tabularnewline
+yeast6 &  0.475  /  0.461  &  0.539  /  0.529  &  0.474  /  0.465  &  0.355  /  0.336  &  0.463  /  0.453 
+\tabularnewline
+\hline Average &  \textbf{0.656}  /  0.640  &  0.651  /  0.639  &  0.639  /  0.631  &  0.556  /  0.538  &  0.632  /  0.623 
+\tabularnewline
+\hline\end{tabular}\end{table*}
+
+
+\begin{table*}[ht]\scriptsize\caption{GB (2)}\label{tab:results:GB:B}\centering\tabularnewline
+\begin{tabular}{l|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}}\hline
+\textbf{dataset ($f_1~$score$~/~\kappa~$score)} & \textbf{ConvGeN(5,maj)} & \textbf{ConvGeN(min,maj)} & \textbf{ConvGeN(5,prox)} & \textbf{ConvGeN(min,prox)}
+\tabularnewline
+\hline
+abalone 17 vs 7 8 9 10 &  0.291  /  0.270  &  0.291  /  0.278  &  0.310  /  0.289  &  0.311  /  0.297 
+\tabularnewline
+abalone9 18 &  0.367  /  0.329  &  0.318  /  0.292  &  0.343  /  0.304  &  0.318  /  0.292 
+\tabularnewline
+car good &  0.714  /  0.705  &  0.864  /  0.858  &  0.733  /  0.723  &  \textbf{0.869}  /  \textbf{0.864} 
+\tabularnewline
+car vgood &  0.933  /  0.931  &  \textbf{0.982}  /  \textbf{0.982}  &  0.951  /  0.949  &  \textbf{0.982}  /  \textbf{0.982} 
+\tabularnewline
+flare F &  0.139  /  0.125  &  0.181  /  0.164  &  0.162  /  0.147  &  0.156  /  0.138 
+\tabularnewline
+hypothyroid &  0.789  /  0.777  &  0.800  /  0.789  &  0.789  /  0.777  &  \textbf{0.815}  /  \textbf{0.806} 
+\tabularnewline
+kddcup guess passwd vs satan &  0.995  /  0.995  &  \textbf{1.000}  /  \textbf{1.000}  &  0.996  /  0.996  &  \textbf{1.000}  /  \textbf{1.000} 
+\tabularnewline
+kr vs k three vs eleven &  \textbf{0.995}  /  \textbf{0.995}  &  \textbf{0.995}  /  \textbf{0.995}  &  0.992  /  0.992  &  \textbf{0.995}  /  \textbf{0.995} 
+\tabularnewline
+kr vs k zero one vs draw &  0.959  /  0.958  &  \textbf{0.972}  /  \textbf{0.971}  &  0.960  /  0.958  &  0.961  /  0.960 
+\tabularnewline
+shuttle 2 vs 5 &  \textbf{1.000}  /  \textbf{1.000}  &  \textbf{1.000}  /  \textbf{1.000}  &  0.994  /  0.994  &  \textbf{1.000}  /  \textbf{1.000} 
+\tabularnewline
+winequality red 4 &  \textbf{0.133}  /  \textbf{0.095}  &  0.107  /  0.066  &  \textbf{0.133}  /  \textbf{0.095}  &  0.102  /  0.063 
+\tabularnewline
+yeast4 &  0.257  /  0.242  &  0.351  /  0.329  &  0.261  /  0.245  &  0.333  /  0.311 
+\tabularnewline
+yeast5 &  0.713  /  0.705  &  0.724  /  0.716  &  0.731  /  0.723  &  0.714  /  0.705 
+\tabularnewline
+yeast6 &  0.490  /  0.481  &  \textbf{0.564}  /  \textbf{0.554}  &  0.481  /  0.472  &  0.520  /  0.510 
+\tabularnewline
+\hline Average &  0.627  /  0.615  &  0.654  /  \textbf{0.642}  &  0.631  /  0.619  &  0.648  /  0.637 
+\tabularnewline
+\hline\end{tabular}\end{table*}
+
+
+% ### KNN
+
+\begin{table*}[ht]\scriptsize\caption{KNN (1)}\label{tab:results:KNN:A}\centering\tabularnewline
+\begin{tabular}{l|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}}\hline
+\textbf{dataset ($f_1~$score$~/~\kappa~$score)} & \textbf{Repeater} & \textbf{ProWRAS} & \textbf{GAN} & \textbf{CTGAN} & \textbf{CTAB GAN}
+\tabularnewline
+\hline
+abalone 17 vs 7 8 9 10 &  0.315  /  0.291  &  \textbf{0.338}  /  \textbf{0.315}  &  0.154  /  0.144  &  0.169  /  0.163  &  0.090  /  0.084 
+\tabularnewline
+abalone9 18 &  0.342  /  0.286  &  \textbf{0.383}  /  \textbf{0.334}  &  0.161  /  0.144  &  0.212  /  0.197  &  0.153  /  0.140 
+\tabularnewline
+car good &  0.357  /  0.312  &  \textbf{0.720}  /  \textbf{0.707}  &  0.465  /  0.439  &  0.220  /  0.160  &  0.375  /  0.332 
+\tabularnewline
+car vgood &  0.413  /  0.375  &  0.805  /  0.797  &  0.718  /  0.707  &  0.297  /  0.249  &  0.618  /  0.597 
+\tabularnewline
+flare F &  0.245  /  0.191  &  0.294  /  0.251  &  0.300  /  0.262  &  0.298  /  0.253  &  0.272  /  0.228 
+\tabularnewline
+hypothyroid &  0.568  /  0.540  &  0.615  /  0.592  &  0.605  /  0.583  &  0.604  /  0.580  &  0.601  /  0.580 
+\tabularnewline
+kddcup guess passwd vs satan &  \textbf{0.991}  /  \textbf{0.991}  &  \textbf{0.991}  /  \textbf{0.991}  &  \textbf{0.991}  /  \textbf{0.991}  &  \textbf{0.991}  /  \textbf{0.991}  &  \textbf{0.991}  /  \textbf{0.991} 
+\tabularnewline
+kr vs k three vs eleven &  0.901  /  0.898  &  0.931  /  0.928  &  0.945  /  0.943  &  0.648  /  0.634  &  0.819  /  0.813 
+\tabularnewline
+kr vs k zero one vs draw &  0.840  /  0.833  &  0.885  /  0.881  &  0.864  /  0.859  &  0.721  /  0.708  &  0.795  /  0.786 
+\tabularnewline
+shuttle 2 vs 5 &  0.951  /  0.951  &  0.956  /  0.955  &  0.931  /  0.930  &  0.947  /  0.946  &  0.914  /  0.913 
+\tabularnewline
+winequality red 4 &  0.069  /  0.016  &  \textbf{0.074}  /  \textbf{0.022}  &  0.037  /  0.013  &  0.046  /  0.002  &  0.045  /  -0.005 
+\tabularnewline
+yeast4 &  0.329  /  0.293  &  \textbf{0.365}  /  0.335  &  0.363  /  \textbf{0.340}  &  0.319  /  0.290  &  0.254  /  0.218 
+\tabularnewline
+yeast5 &  0.670  /  0.657  &  \textbf{0.691}  /  \textbf{0.679}  &  0.677  /  0.667  &  0.583  /  0.565  &  0.678  /  0.667 
+\tabularnewline
+yeast6 &  0.409  /  0.387  &  \textbf{0.464}  /  \textbf{0.447}  &  0.406  /  0.386  &  0.397  /  0.375  &  0.424  /  0.405 
+\tabularnewline
+\hline Average &  0.529  /  0.502  &  \textbf{0.608}  /  \textbf{0.588}  &  0.544  /  0.529  &  0.461  /  0.437  &  0.502  /  0.482 
+\tabularnewline
+\hline\end{tabular}\end{table*}
+
+
+\begin{table*}[ht]\scriptsize\caption{KNN (2)}\label{tab:results:KNN:B}\centering\tabularnewline
+\begin{tabular}{l|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}}\hline
+\textbf{dataset ($f_1~$score$~/~\kappa~$score)} & \textbf{ConvGeN(5,maj)} & \textbf{ConvGeN(min,maj)} & \textbf{ConvGeN(5,prox)} & \textbf{ConvGeN(min,prox)}
+\tabularnewline
+\hline
+abalone 17 vs 7 8 9 10 &  0.290  /  0.261  &  0.315  /  0.296  &  0.273  /  0.243  &  0.311  /  0.291 
+\tabularnewline
+abalone9 18 &  0.361  /  0.305  &  0.136  /  0.120  &  0.347  /  0.290  &  0.165  /  0.149 
+\tabularnewline
+car good &  0.558  /  0.531  &  0.509  /  0.479  &  0.534  /  0.505  &  0.585  /  0.561 
+\tabularnewline
+car vgood &  0.659  /  0.641  &  \textbf{0.879}  /  \textbf{0.874}  &  0.700  /  0.684  &  0.794  /  0.784 
+\tabularnewline
+flare F &  0.269  /  0.220  &  \textbf{0.306}  /  \textbf{0.265}  &  0.277  /  0.228  &  0.302  /  0.262 
+\tabularnewline
+hypothyroid &  0.576  /  0.548  &  0.606  /  0.582  &  0.578  /  0.551  &  \textbf{0.646}  /  \textbf{0.628} 
+\tabularnewline
+kddcup guess passwd vs satan &  0.982  /  0.982  &  \textbf{0.991}  /  \textbf{0.991}  &  0.985  /  0.985  &  \textbf{0.991}  /  \textbf{0.991} 
+\tabularnewline
+kr vs k three vs eleven &  0.895  /  0.891  &  \textbf{0.961}  /  \textbf{0.960}  &  0.894  /  0.890  &  0.925  /  0.923 
+\tabularnewline
+kr vs k zero one vs draw &  0.864  /  0.858  &  \textbf{0.897}  /  \textbf{0.892}  &  0.865  /  0.859  &  0.853  /  0.847 
+\tabularnewline
+shuttle 2 vs 5 &  0.954  /  0.954  &  0.932  /  0.931  &  \textbf{0.960}  /  \textbf{0.960}  &  0.943  /  0.942 
+\tabularnewline
+winequality red 4 &  \textbf{0.074}  /  0.016  &  0.058  /  -0.001  &  \textbf{0.074}  /  0.016  &  0.059  /  0.000 
+\tabularnewline
+yeast4 &  0.334  /  0.296  &  0.348  /  0.313  &  0.338  /  0.301  &  0.345  /  0.309 
+\tabularnewline
+yeast5 &  0.650  /  0.636  &  0.646  /  0.631  &  0.640  /  0.624  &  0.659  /  0.645 
+\tabularnewline
+yeast6 &  0.337  /  0.311  &  0.426  /  0.406  &  0.334  /  0.308  &  0.390  /  0.367 
+\tabularnewline
+\hline Average &  0.557  /  0.532  &  0.572  /  0.553  &  0.557  /  0.532  &  0.569  /  0.550 
+\tabularnewline
+\hline\end{tabular}\end{table*}
+
+
+% ### DoC
+
+\begin{table*}[ht]\scriptsize\caption{DoC}\label{tab:results:DoC:A}\centering\tabularnewline
+\begin{tabular}{l|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}|@{\hskip3pt}c@{\hskip3pt}}\hline
+\textbf{dataset ($f_1~$score$~/~\kappa~$score)} & \textbf{ConvGeN(5,maj)} & \textbf{ConvGeN(min,maj)} & \textbf{ConvGeN(5,prox)} & \textbf{ConvGeN(min,prox)}
+\tabularnewline
+\hline
+abalone 17 vs 7 8 9 10 &  0.306  /  0.278  &  \textbf{0.393}  /  \textbf{0.372}  &  0.317  /  0.289  &  0.366  /  0.345 
+\tabularnewline
+abalone9 18 &  0.477  /  0.433  &  0.538  /  0.512  &  0.512  /  0.473  &  \textbf{0.549}  /  \textbf{0.525} 
+\tabularnewline
+car good &  0.741  /  0.729  &  0.659  /  0.646  &  \textbf{0.759}  /  \textbf{0.748}  &  0.577  /  0.558 
+\tabularnewline
+car vgood &  0.772  /  0.763  &  0.721  /  0.712  &  \textbf{0.776}  /  \textbf{0.766}  &  0.753  /  0.743 
+\tabularnewline
+flare F &  \textbf{0.321}  /  \textbf{0.279}  &  0.223  /  0.193  &  0.302  /  0.262  &  0.267  /  0.234 
+\tabularnewline
+hypothyroid &  0.627  /  0.604  &  \textbf{0.703}  /  \textbf{0.688}  &  0.625  /  0.602  &  0.690  /  0.674 
+\tabularnewline
+kddcup guess passwd vs satan &  0.991  /  0.991  &  \textbf{1.000}  /  \textbf{1.000}  &  0.996  /  0.996  &  \textbf{1.000}  /  \textbf{1.000} 
+\tabularnewline
+kr vs k three vs eleven &  0.993  /  0.992  &  0.995  /  0.995  &  0.994  /  0.994  &  \textbf{0.996}  /  \textbf{0.996} 
+\tabularnewline
+kr vs k zero one vs draw &  0.957  /  0.955  &  0.951  /  0.949  &  \textbf{0.965}  /  \textbf{0.964}  &  0.941  /  0.939 
+\tabularnewline
+shuttle 2 vs 5 &  \textbf{1.000}  /  \textbf{1.000}  &  0.996  /  0.996  &  0.994  /  0.994  &  0.998  /  0.998 
+\tabularnewline
+winequality red 4 &  0.118  /  0.065  &  \textbf{0.123}  /  \textbf{0.073}  &  0.115  /  0.063  &  0.105  /  0.052 
+\tabularnewline
+yeast4 &  0.312  /  0.274  &  0.308  /  0.271  &  0.311  /  0.273  &  \textbf{0.334}  /  \textbf{0.299} 
+\tabularnewline
+yeast5 &  0.578  /  0.560  &  \textbf{0.652}  /  \textbf{0.639}  &  0.571  /  0.553  &  0.637  /  0.623 
+\tabularnewline
+yeast6 &  0.366  /  0.342  &  \textbf{0.491}  /  \textbf{0.475}  &  0.358  /  0.334  &  0.382  /  0.359 
+\tabularnewline
+\hline Average &  0.611  /  0.590  &  \textbf{0.625}  /  \textbf{0.609}  &  0.614  /  0.594  &  0.614  /  0.596 
+\tabularnewline
+\hline\end{tabular}\end{table*}
+

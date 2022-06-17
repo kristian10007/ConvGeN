@@ -1,0 +1,11 @@
+tensorflow>=2.7.0
+torch>=1.10.2
+scikit-image>=0.18.3
+scikit-learn>=0.24.2
+tqdm>=4.62.3
+matplotlib>=3.4.3
+imblearn
+numpy>=1.20.3
+ctgan>=0.5.1
+keras>=2.7.0
+pickleshare>=0.7.5

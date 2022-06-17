@@ -1,0 +1,9 @@
+.ipynb_checkpoints
+__pycache__
+*.swp
+temp
+docker/container.ok
+*.aux
+*.log
+*.o
+*.hi
