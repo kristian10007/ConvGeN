@@ -162,10 +162,17 @@ def runExercise(datasetName, resultList, ganName, ganCreator, skipIfCsvExists=Tr
     if resultList is not None:
         resultList[datasetName] = avg
 
+    print(f"  wall time: {showTime(twEnd - twStart)}s, process time: {showTime(tpEnd - tpStart)}s")
+
+    sys.stdout = open(resultsFileName + ".log.time", "w")
+    print(f"Running {ganName} on {datasetName}")
+    print(f"wall time (s): {showTime(twEnd - twStart)}\nprocess time (s): {showTime(tpEnd - tpStart)}")
+
+
     sys.stdout = oldStdOut
     sys.stderr = oldStdErr
 
-    print(f"  wall time: {showTime(twEnd - twStart)}s, process time: {showTime(tpEnd - tpStart)}")
+    print(f"  wall time: {showTime(twEnd - twStart)}s, process time: {showTime(tpEnd - tpStart)}s")
 
     
 testSets = [
@@ -193,11 +200,11 @@ testSets = [
 
 generators = { "Repeater":                lambda _data: Repeater()
              , "ProWRAS":                 lambda _data: ProWRAS()
-             , "GAN":                     lambda data: SimpleGan(numOfFeatures=data.data0.shape[1])
-             , "CTGAN":                   lambda data: CtGAN(data.data0.shape[1])
-             , "CTAB-GAN":                lambda _data: CtabGan()
-             , "ConvGeN-majority-5":      lambda data: ConvGeN(data.data0.shape[1], neb=5, gen=5)
-             , "ConvGeN-majority-full":   lambda data: ConvGeN(data.data0.shape[1], neb=None)
-             , "ConvGeN-proximity-5":     lambda data: ConvGeN(data.data0.shape[1], neb=5, gen=5, maj_proximal=True)
-             , "ConvGeN-proximity-full":  lambda data: ConvGeN(data.data0.shape[1], neb=None, maj_proximal=True)
+             , "GAN":                     lambda data: SimpleGan(numOfFeatures=data.data0.shape[1], epochs=300)
+             , "CTGAN":                   lambda data: CtGAN(epochs=300)
+             , "CTAB-GAN":                lambda _data: CtabGan(epochs=300)
+             , "ConvGeN-majority-5":      lambda data: ConvGeN(data.data0.shape[1], neb=5, gen=5, neb_epochs=10)
+             , "ConvGeN-majority-full":   lambda data: ConvGeN(data.data0.shape[1], neb=None, neb_epochs=10)
+             , "ConvGeN-proximity-5":     lambda data: ConvGeN(data.data0.shape[1], neb=5, gen=5, maj_proximal=True, neb_epochs=10)
+             , "ConvGeN-proximity-full":  lambda data: ConvGeN(data.data0.shape[1], neb=None, maj_proximal=True, neb_epochs=10)
              }
