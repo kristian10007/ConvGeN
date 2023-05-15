@@ -407,3 +407,6 @@ class ConvGeN(GanBaseClass):
         labels = np.array([ [x, 1 - x] for x in labels])
         self.maj_min_discriminator.fit(x=data, y=labels, batch_size=20, epochs=self.neb_epochs)
         self.maj_min_discriminator.trainable = False
+    
+    def fit(self, data, labels):
+        return self.retrainDiscriminitor(data, labels)

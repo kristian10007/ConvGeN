@@ -14,7 +14,12 @@ from sklearn.metrics import confusion_matrix
 from sklearn.metrics import average_precision_score
 from sklearn.metrics import f1_score
 from sklearn.metrics import cohen_kappa_score
+from sklearn.metrics import RocCurveDisplay
+from sklearn.metrics import PrecisionRecallDisplay
 from sklearn.ensemble import GradientBoostingClassifier
+from imblearn.metrics import geometric_mean_score
+
+from library.cache import dataCache
 
 _tF1 = "f1 score"
 _tTN = "TN"
@@ -24,6 +29,7 @@ _tFP = "FP"
 _tFP = "RF"
 _tAps = "average precision score"
 _tCks = "cohens kappa score"
+_tGMean = "G-Mean score"
 
 class TestResult:
     """
@@ -45,10 +51,12 @@ class TestResult:
         *aps* is a real number representing the average precision score.
         """
         self.title = title
-        self.heading = [_tTN, _tTP, _tFN, _tFP, _tF1, _tCks]
-        if aps is not None:
-            self.heading.append(_tAps)
+        self.heading = [_tTN, _tTP, _tFN, _tFP, _tF1, _tCks, _tAps, _tGMean]
         self.data = { n: 0.0 for n in self.heading }
+
+
+        self.labels = labels
+        self.prediction = prediction
 
         if labels is not None and prediction is not None:
             self.data[_tF1]     = f1_score(labels, prediction)
@@ -59,9 +67,13 @@ class TestResult:
             self.data[_tTP] = tp
             self.data[_tFN] = fn
             self.data[_tFP] = fp
+            self.data[_tGMean] = geometric_mean_score(labels, prediction)
+            if aps is None:
+                self.data[_tAps] = average_precision_score(labels, prediction)
 
         if aps is not None:
             self.data[_tAps] = aps
+
 
     def __str__(self):
         """
@@ -146,78 +158,92 @@ class TestResult:
                     a.data[k] = 0.0
             return (mi, ma, a)
 
+    def plotPR(self, ax):
+        PrecisionRecallDisplay.from_predictions(self.labels, self.prediction, name=self.title, ax=ax)
+
+    def plotROC(self, ax):
+        RocCurveDisplay.from_predictions(self.labels, self.prediction, name=self.title, ax=ax)
+
         
 
 
-def lr(ttd):
+def lr(ttd, jsonFileName=None):
     """
     Runs a test for a dataset with the logistic regression algorithm.
     It returns a /TestResult./
 
     *ttd* is a /library.dataset.TrainTestData/ instance containing data to test.
     """
-    checkType(ttd)
-    logreg = LogisticRegression(
-        C=1e5,
-        solver='lbfgs',
-        max_iter=10000,
-        multi_class='multinomial',
-        class_weight={0: 1, 1: 1.3}
-        )
-    logreg.fit(ttd.train.data, ttd.train.labels)
+    def g(nothing):
+        checkType(ttd)
+        logreg = LogisticRegression(
+            C=1e5,
+            solver='lbfgs',
+            max_iter=10000,
+            multi_class='multinomial',
+            class_weight={0: 1, 1: 1.3}
+            )
+        logreg.fit(ttd.train.data, ttd.train.labels)
+        prediction = logreg.predict(ttd.test.data)
+        prob_lr = logreg.predict_proba(ttd.test.data)
+        aps_lr = average_precision_score(ttd.test.labels, prob_lr[:,1])
+        return {
+            "labels": ttd.test.labels,
+            "prediction": prediction,
+            "aps_lr": aps_lr
+            }
 
-    prediction = logreg.predict(ttd.test.data)
-
-    prob_lr = logreg.predict_proba(ttd.test.data)
-    aps_lr = average_precision_score(ttd.test.labels, prob_lr[:,1])
-    return TestResult("LR", ttd.test.labels, prediction, aps_lr)
+    d = dataCache(jsonFileName, g)
+    return TestResult("LR", d["labels"], d["prediction"], d["aps_lr"])
 
 
 
-def knn(ttd):
+def knn(ttd, jsonFileName=None):
     """
     Runs a test for a dataset with the k-next neighbourhood algorithm.
     It returns a /TestResult./
 
     *ttd* is a /library.dataset.TrainTestData/ instance containing data to test.
     """
-    checkType(ttd)
     knnTester = KNeighborsClassifier(n_neighbors=10)
-    knnTester.fit(ttd.train.data, ttd.train.labels)
-    return runTester(ttd, knnTester, "KNN")
+    return runTester(ttd, knnTester, "KNN", jsonFileName)
 
 
-def gb(ttd):
+def gb(ttd, jsonFileName=None):
     """
     Runs a test for a dataset with the gradient boosting algorithm.
     It returns a /TestResult./
 
     *ttd* is a /library.dataset.TrainTestData/ instance containing data to test.
     """
-    checkType(ttd)
     tester = GradientBoostingClassifier()
-    tester.fit(ttd.train.data, ttd.train.labels)
-    return runTester(ttd, tester, "GB")
+    return runTester(ttd, tester, "GB", jsonFileName)
 
 
 
-def rf(ttd):
+def rf(ttd, jsonFileName=None):
     """
     Runs a test for a dataset with the random forest algorithm.
     It returns a /TestResult./
 
     *ttd* is a /library.dataset.TrainTestData/ instance containing data to test.
     """
-    checkType(ttd)
     tester = RandomForestClassifier()
-    tester.fit(ttd.train.data, ttd.train.labels)
-    return runTester(ttd, tester, "RF")
+    return runTester(ttd, tester, "RF", jsonFileName)
 
 
 
-def runTester(ttd, tester, name="GAN"):
-    prediction = tester.predict(ttd.test.data)
-    return TestResult(name, ttd.test.labels, prediction)
+def runTester(ttd, tester, name="GAN", jsonFileName=None):
+    def g(nothing):
+        checkType(ttd)
+        tester.fit(ttd.train.data, ttd.train.labels)
+        return {
+            "labels": ttd.test.labels,
+            "prediction": tester.predict(ttd.test.data)
+            }
+
+    d = dataCache(jsonFileName, g)
+    return TestResult(name, d["labels"], d["prediction"])
 
 def checkType(t):
     if str(type(t)) == "<class 'numpy.ndarray'>":
