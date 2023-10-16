@@ -1,0 +1,6 @@
+# Copying
+Download via
+  git clone --recursive https://github.com/kristian10007/ConvGeN
+
+If the submodules was not downloaded to "external/ProWRAS", "external/LoRAS" or "external/CTAB-GAN" please run "forceSubmodules.sh".
+
