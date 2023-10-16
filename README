@@ -4,3 +4,7 @@ Download via
 
 If the submodules was not downloaded to "external/ProWRAS", "external/LoRAS" or "external/CTAB-GAN" please run "forceSubmodules.sh".
 
+
+# Example
+
+The folder example contains a minimal example and library for generating synthetic points with ConvGeN.
